@@ -9,8 +9,8 @@ import { motion } from "motion/react";
  * @description Animated vertical taskbar component with fade-in entrance effect.
  * Implements motion-powered transitions and enterprise-grade accessibility patterns.
  *
- * @author [Your Name]
- * @created [Creation Date]
+ * @author Aadarsh Anilkumar
+ * @created 08-05-2025
  * @version 1.2
  * @dependencies react, motion/react, @/config/vector
  *
