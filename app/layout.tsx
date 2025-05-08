@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
+
+// Define the Arabic font
+const arabic = localFont({
+  src: "../public/fonts/BismillahScript.ttf",
+  variable: "--font-arabic", // Optional: Define a CSS variable for better control
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${arabic.variable} antialiased`} // Use arabic.variable instead of arabic.className
       >
         {children}
       </body>
