@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion, Variants } from "framer-motion";
+import Taskbar from "@/app/layouts/origin/taskbar/Taskbar";
 
 /**
  * @file RetroTextComponent.tsx
@@ -62,42 +63,45 @@ const textShadowVariant: Variants = {
  */
 const Retro: React.FC = () => {
   return (
-    <div
-      className="flex items-center justify-center w-full h-auto"
-      role="banner"
-      aria-label="Animated Retro Text"
-    >
+    <>
+      <Taskbar />
       <div
-        className="flex items-center justify-center h-auto"
-        data-testid="retro-text-container"
+        className="flex items-center justify-center w-full min-h-screen"
+        role="banner"
+        aria-label="Animated Retro Text"
       >
-        {"Retro".split("").map((character, index) => (
-          <motion.h1
-            key={index}
-            className="text-[70px] arabic-text bg-gradient-to-b from-[#FFD700] to-[#635400] bg-clip-text text-transparent cursor-default"
-            style={{
-              willChange: "opacity, text-shadow, transform",
-            }}
-            variants={textShadowVariant}
-            initial="hidden"
-            animate="visible"
-            transition={{
-              duration: 2.7 + index * 0.1, // Base duration + index-based increment
-              ease: [0.6, 0.01, 0.4, 0.98], // Custom cubic-bezier curve for smooth acceleration
-              delay: index * 0.3, // Staggered delay for sequential animation
-              type: "spring",
-              stiffness: 80, // Spring tension (affects bounce intensity)
-              damping: 25, // Resistance to motion (higher = less oscillation)
-              mass: 0.8, // Implicit mass value (not shown, but considered in spring physics)
-            }}
-            aria-label={`Character ${index + 1}: ${character}`}
-            role="text"
-          >
-            {character}
-          </motion.h1>
-        ))}
+        <div
+          className="flex items-center justify-center h-auto"
+          data-testid="retro-text-container"
+        >
+          {"Retro".split("").map((character, index) => (
+            <motion.h1
+              key={index}
+              className="text-[70px] arabic-text bg-gradient-to-b from-[#FFD700] to-[#635400] bg-clip-text text-transparent cursor-default"
+              style={{
+                willChange: "opacity, text-shadow, transform",
+              }}
+              variants={textShadowVariant}
+              initial="hidden"
+              animate="visible"
+              transition={{
+                duration: 2.7 + index * 0.1, // Base duration + index-based increment
+                ease: [0.6, 0.01, 0.4, 0.98], // Custom cubic-bezier curve for smooth acceleration
+                delay: index * 0.3, // Staggered delay for sequential animation
+                type: "spring",
+                stiffness: 80, // Spring tension (affects bounce intensity)
+                damping: 25, // Resistance to motion (higher = less oscillation)
+                mass: 0.8, // Implicit mass value (not shown, but considered in spring physics)
+              }}
+              aria-label={`Character ${index + 1}: ${character}`}
+              role="text"
+            >
+              {character}
+            </motion.h1>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
