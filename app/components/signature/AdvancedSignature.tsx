@@ -6,11 +6,6 @@ const AdvancedSignature: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
   const controls = useAnimation();
 
-  const handleReset = () => {
-    setIsAnimating(false);
-    setTimeout(() => setIsAnimating(true), 100);
-  };
-
   useEffect(() => {
     if (isAnimating) {
       controls.start("visible");
@@ -41,7 +36,7 @@ const AdvancedSignature: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center gap-8">
-      <motion.div className="cursor-pointer" onClick={handleReset}>
+      <motion.div className="cursor-pointer">
         <svg
           width="100"
           height="55"
