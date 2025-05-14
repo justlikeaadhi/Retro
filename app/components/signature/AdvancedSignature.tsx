@@ -5,10 +5,10 @@ import { motion, useAnimation } from "framer-motion";
 const AdvancedSignature: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(true);
   const controls = useAnimation();
-
   useEffect(() => {
     if (isAnimating) {
       controls.start("visible");
+      setIsAnimating((prev) => prev);
     } else {
       controls.start("hidden");
     }
